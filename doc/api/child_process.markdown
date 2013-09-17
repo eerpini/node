@@ -544,6 +544,7 @@ leaner than `child_process.exec`. It has the same options.
   * `env` {Object} Environment key-value pairs
   * `encoding` {String} (Default: 'utf8')
   * `execPath` {String} Executable used to create the child process
+  * `execArgv` {Array} Command line args to be passed to the child process 
 * Return: ChildProcess object
 
 This is a special case of the `spawn()` functionality for spawning Node
@@ -567,5 +568,9 @@ created for the child rather than the current `node` executable. This should be
 done with care and by default will talk over the fd represented an
 environmental variable `NODE_CHANNEL_FD` on the child process. The input and
 output on this fd is expected to be line delimited JSON objects.
+
+The `execArgv` property in the `options` object contains the command line
+arguments that will be passed to the child process and will override parent's
+process.execArgv, these command line arguments will be concatenated with `args`
 
 [EventEmitter]: events.html#events_class_events_eventemitter
